@@ -29,7 +29,7 @@ Module.register('MMM-Traffic', {
         showWeekend: true,
         allTime: true,
         startHr: 7,
-        endHr: 10
+        endHr: 10,
         avoid:''
     },
 
@@ -89,6 +89,7 @@ Module.register('MMM-Traffic', {
         if (this.config.arrival_time == '') {
           //commute time
           var trafficInfo = document.createElement('span');
+		  trafficInfo.className = 'trafficInfo';
           trafficInfo.innerHTML = this.config.prependText + ' ' + this.commute;
           commuteInfo.appendChild(trafficInfo);
 
@@ -107,7 +108,7 @@ Module.register('MMM-Traffic', {
           //routeName
           if (this.config.route_name) {
             var routeName = document.createElement('div');
-            routeName.className = 'dimmed small';
+            routeName.className = 'dimmed small trafficRoute';
             if (this.summary.length > 0 && this.config.show_summary){
               routeName.innerHTML = this.config.route_name + ' via ' + this.summary; //todo translatable?
             } else {
@@ -118,6 +119,7 @@ Module.register('MMM-Traffic', {
         } else {
           //leave-by time
           var trafficInfo = document.createElement('span');
+		  trafficInfo.className = 'trafficInfo';
           trafficInfo.innerHTML = "Leave by " + this.leaveBy;
           commuteInfo.appendChild(trafficInfo);
   	      wrapper.appendChild(commuteInfo);
@@ -125,7 +127,7 @@ Module.register('MMM-Traffic', {
           //routeName
           if (this.config.route_name) {
             var routeName = document.createElement('div');
-            routeName.className = 'dimmed small';
+            routeName.className = 'dimmed small trafficRoute';
             if (this.summary.length > 0 && this.config.show_summary){
               routeName.innerHTML = this.config.route_name + ' via ' + this.summary + " to arrive by " + this.config.arrival_time.substring(0,2) + ":" + this.config.arrival_time.substring(2,4);
             } else {

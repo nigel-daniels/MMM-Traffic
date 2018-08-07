@@ -1,5 +1,21 @@
+.MMM-Traffic:nth-last-child(4) {
+  margin-bottom: 0px;
+}
+
 .symbol {
   margin-right: 15px;
+}
+
+.fa-car {
+  font-size: 25px !important;
+}
+
+.trafficInfo {
+  font-size: 20px;
+}
+
+.trafficRoute {
+  font-size: 16px;
 }
 
 .green {
