@@ -35,9 +35,7 @@ Module.register('MMM-Traffic', {
 
     start: function() {
         Log.info('Starting module: ' + this.name);
-        if (this.data.classes === 'MMM-Traffic') {
-          this.data.classes = 'bright medium';
-        }
+        
         this.loaded = false;
         this.leaveBy = '';
         this.url = encodeURI('https://maps.googleapis.com/maps/api/directions/json' + this.getParams());
@@ -74,6 +72,8 @@ Module.register('MMM-Traffic', {
 
     getDom: function() {
         var wrapper = document.createElement("div");
+		wrapper.className = 'bright medium';
+
         var commuteInfo = document.createElement('div'); //support for config.changeColor
 
         if (!this.loaded) {
